@@ -1,6 +1,7 @@
 package models;
 
 public class Item {
+	// commint
 	public static final int WEAPON = 1;
 	public static final int ARMOR = 2;
 	public static final int ACC = 3;

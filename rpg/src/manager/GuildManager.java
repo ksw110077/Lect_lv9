@@ -6,6 +6,7 @@ import models.Player;
 import models.Unit;
 
 public class GuildManager {
+	// commint
 	public static GuildManager Instance = new GuildManager();
 	private final int PARTY_SIZE = 4;
 	private ArrayList<Unit> guildList = new ArrayList<>();

@@ -14,6 +14,7 @@ public class Game {
 	FileManager fm = FileManager.Instance;
 	
 	public void run() {
+		// commint
 		// 길드 GuildManager
 		// 맴버변수
 		// ㄴ 길드원 목록

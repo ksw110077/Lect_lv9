@@ -6,6 +6,7 @@ import models.Item;
 import models.Player;
 
 public class ShopManager {
+	// commint
 	public static ShopManager Instance = new ShopManager();
 	private ArrayList<Item> itemList = new ArrayList<>();
 	InventoryManager im = InventoryManager.Instance;

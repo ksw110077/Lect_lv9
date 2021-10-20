@@ -10,6 +10,7 @@ import models.Player;
 import models.Unit;
 
 public class FileManager {
+	// commint
 	public static FileManager Instance = new FileManager();
 	GuildManager gm = GuildManager.Instance;
 	ShopManager sm = ShopManager.Instance;

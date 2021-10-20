@@ -7,6 +7,7 @@ import models.Player;
 import models.Unit;
 
 public class InventoryManager {
+	// commint
 	// 착용/해제/판매/뒤로가기
 	public static InventoryManager Instance = new InventoryManager();
 	GuildManager gm = GuildManager.Instance;
