@@ -10,7 +10,7 @@ public class GuildManager {
 	private final int PARTY_SIZE = 4;
 	private ArrayList<Unit> guildList = new ArrayList<>();
 	private Unit[] partyList;
-	
+	// commint
 	// 길드원 목록/길드원 고용/길드원 해고/파티원 교체/정렬/뒤로가기
 	
 	public GuildManager(){
