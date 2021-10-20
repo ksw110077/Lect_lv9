@@ -18,24 +18,13 @@ public class GuildManager {
 	}
 	
 	private void setGuildUnit() {
+		this.partyList = new Unit[this.PARTY_SIZE];
 		// 유닛 추가
 		for(int i = 0; i < 5; i++) {
 			if(!creatGuildUnit()) {
 				i--;
 			}
 		}
-		// 파티원 순차 적용
-		for (int i = 0; i < 4; i++) {
-			this.guildList.get(i).setParty(true);
-		}
-		this.partyList = new Unit[this.PARTY_SIZE];
-		int n = 0;
-		for(int i = 0; i < this.guildList.size(); i++) {
-			if(this.guildList.get(i).getParty() == true) {
-				this.partyList[n] = this.guildList.get(i);
-				n += 1;
-			}
-		}	
 	}
 	public void printGuildMenu() {
 		System.out.println("\n=============== [길드] ================");
@@ -66,6 +55,7 @@ public class GuildManager {
 		else if (sel == 2) { // 길드원 고용
 			addGuildUnit();
 			Game.delayPrint();
+			printGuildUnit();
 		}
 		else if (sel == 3) { // 길드원 판매
 			removeGuildUnit();
@@ -141,10 +131,14 @@ public class GuildManager {
 	}
 	
 	private boolean creatGuildUnit() {
-		Unit temp = randomUnit();
-		int check = checkOLUnit(temp);
+		Unit temp = randomUnit(); // 랜덤 유닛 생성
+		int check = checkOLUnit(temp); // 이름 중복 확인
 		if(check == -1) {
+			int cntPU = cntPartyUnit();
 			this.guildList.add(temp);
+			if(cntPU < this.PARTY_SIZE) {
+				this.partyList[cntPU] = temp;
+			}
 			return true;
 		}
 		return false;
@@ -487,8 +481,14 @@ public class GuildManager {
 		int d = Game.rn.nextInt(10) + 1;
 		int e = 0;
 		
-		Unit unit = new Unit(n,l,mH,a,d,e);
-		
+		int cntPU = cntPartyUnit();
+		Unit unit;
+		if(cntPU < this.PARTY_SIZE) {
+			unit = new Unit(n,l,mH,a,d,e,true);
+		}
+		else {
+			unit = new Unit(n,l,mH,a,d,e);
+		}
 		return unit;
 	}
 }
